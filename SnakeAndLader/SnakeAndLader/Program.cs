@@ -15,6 +15,8 @@ namespace SnakeAndLader
 			int playerOnePosition = INITIAL_POSITION;
 			int playerTwoPosition = INITIAL_POSITION;
 			bool firstPlayer = true;
+			int countOfRollFirstPlayer = 0;
+			int countOfRollSecondPlayer = 0;
 			Console.WriteLine("===Hello!!Welcome to Snake Ladder Game!!===");
 			Console.WriteLine("Both players are at the starting position");
 			while (playerOnePosition != WINNING_POSITION && playerTwoPosition != WINNING_POSITION)
@@ -23,6 +25,7 @@ namespace SnakeAndLader
 				{
 					Random value = new Random();
 					int diceValue = value.Next(1, 7);
+					countOfRollFirstPlayer++;
 					Console.WriteLine("First Player rolled Dice: " + diceValue);
 					int actionTaken = value.Next(0, 3);
 					if (actionTaken == NO_PLAY)
@@ -51,6 +54,7 @@ namespace SnakeAndLader
 				{
 					Random random = new Random();
 					int diceValue = random.Next(1, 7);
+					countOfRollSecondPlayer++;
 					Console.WriteLine("Second Player rolled Dice : " + diceValue);
 					int actionTaken = random.Next(0, 3);
 					if (actionTaken == NO_PLAY)
@@ -79,10 +83,14 @@ namespace SnakeAndLader
 			if (playerOnePosition == WINNING_POSITION)
 			{
 				Console.WriteLine("Player 1 won the game");
+				Console.WriteLine("first player tottal time roll dice::" + countOfRollFirstPlayer);
+				Console.WriteLine("Second player tottal time roll dice::" + countOfRollSecondPlayer);
 			}
 			else
 			{
 				Console.WriteLine("Player 2 won the game");
+				Console.WriteLine("first player tottal time roll dice::" + countOfRollFirstPlayer);
+				Console.WriteLine("Second player tottal time roll dice::" + countOfRollSecondPlayer);
 			}
 		}
 	}
